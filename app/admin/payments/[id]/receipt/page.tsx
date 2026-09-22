@@ -10,9 +10,11 @@ interface PaymentDetails {
   superficie_m2?: string;
   bloc?: string;
   location?: string;
+  tf_number?: string;
   price_per_m2?: string;
   remaining_balance?: string;
   remaining_balance_words?: string;
+  bornage_fee?: string;
   remaining_installments?: string;
 }
 
@@ -50,7 +52,7 @@ export default function ReceiptPrintPage() {
   const payerName = payment.clients?.full_name ?? "..............................";
 
   return (
-    <div className="bg-[#0A2A20] min-h-screen py-8">
+    <div className="bg-[#0A2A20] min-h-screen py-8 print:bg-white print:min-h-0 print:py-0">
       <div className="max-w-3xl mx-auto px-6 mb-4 print:hidden">
         <PrintButton />
       </div>
@@ -77,13 +79,20 @@ export default function ReceiptPrintPage() {
             representant l&apos;acompte en vue de l&apos;achat d&apos;une
             parcelle de terrain, d&apos;une superficie de{" "}
             <strong>{d.superficie_m2} metres carres</strong> situe au
-            lieu-dit <strong>{d.location}</strong>, sur la base de{" "}
+            lieu-dit <strong>{d.location}</strong>, morcele dans le TF{" "}
+            <strong>{d.tf_number}</strong>, sur la base de{" "}
             <strong>{d.price_per_m2} FCFA</strong> par metre carre.
           </p>
 
-          <p className="mb-6">
+          <p className="mb-2">
             Ce recu leur est donne pour servir et valoir ce que de droit.
           </p>
+          {d.bornage_fee && (
+            <p className="mb-4">
+              <strong>Frais de bornage :</strong>{" "}
+              {Number(d.bornage_fee).toLocaleString("fr-FR")} Francs CFA
+            </p>
+          )}
 
           {d.remaining_balance && (
             <p className="mb-2">

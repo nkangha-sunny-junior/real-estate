@@ -59,7 +59,7 @@ export default function ContractPrintPage() {
   const partnerName = contract.clients?.full_name ?? "..............................";
 
   return (
-    <div className="bg-[#0A2A20] min-h-screen py-8">
+    <div className="bg-[#0A2A20] min-h-screen py-8 print:bg-white print:min-h-0 print:py-0">
       <div className="max-w-3xl mx-auto px-6 mb-4 print:hidden">
         <PrintButton />
       </div>
@@ -74,11 +74,14 @@ export default function ContractPrintPage() {
           backgroundPosition: "top center",
         }}
       >
-        <div style={{ paddingTop: "58mm", paddingBottom: "38mm", paddingLeft: "22mm", paddingRight: "22mm" }}>
+        <div
+          className="print:text-[12px] print:leading-tight"
+          style={{ paddingTop: "45mm", paddingBottom: "22mm", paddingLeft: "20mm", paddingRight: "20mm" }}
+        >
         <p className="text-center font-bold underline mb-6">CONTRAT DE PARTENARIAT</p>
         <p className="font-bold mb-4">ENTRE LES SOUSSIGNES</p>
 
-        <p className="mb-4 text-justify leading-relaxed">
+        <p className="mb-2 print:mb-1.5 text-justify leading-relaxed">
           <strong>La Societe A Responsabilite Limitee VISION-H Sarl</strong> au
           capital de 1 000 000 (un million) de F.CFA, dont le siege social
           est a Douala, Immatricule au Registre du Commerce et du Credit
@@ -90,28 +93,28 @@ export default function ContractPrintPage() {
           numero AA10751311, a lui delivree le vingt-sept mai deux mil
           vingt-cinq, de nationalite Camerounaise.
         </p>
-        <p className="mb-6">
+        <p className="mb-3 print:mb-2">
           Ci-apres designes « <strong>Apporteur de Marche</strong> »
           <br />
           <span className="italic">D&apos;UNE PART</span>
         </p>
 
-        <p className="mb-4 text-justify leading-relaxed">
+        <p className="mb-2 print:mb-1.5 text-justify leading-relaxed">
           <strong>{d.civility} {partnerName}</strong>, demeurant a{" "}
           {d.address}, ne le {d.birth_date} a {d.birth_place}, titulaire de
           la Carte Nationale d&apos;Identite {d.id_number} a lui delivre le{" "}
           {d.id_issue_date}, de nationalite {d.nationality}.
         </p>
-        <p className="mb-6">
+        <p className="mb-3 print:mb-2">
           Ci-apres designes « <strong>Partenaire D&apos;Affaires</strong> »
           <br />
           <span className="italic">D&apos;AUTRE PART</span>
         </p>
 
-        <p className="mb-6">Il a ete arrete entre les deux parties ce qui suit :</p>
+        <p className="mb-3 print:mb-2">Il a ete arrete entre les deux parties ce qui suit :</p>
 
-        <p className="font-bold underline mb-2">ARTICLE I : OBJET DU PARTENARIAT</p>
-        <p className="mb-6 text-justify leading-relaxed">
+        <p className="font-bold underline mb-1 print:mb-1 mt-3 print:mt-2">ARTICLE I : OBJET DU PARTENARIAT</p>
+        <p className="mb-3 print:mb-2 text-justify leading-relaxed">
           Ce contrat est destine a regir de la maniere la plus complete
           possible la relation de partenariat conclue entre
           l&apos;Entreprise <strong>VISION-H SARL</strong> et {d.civility}{" "}
@@ -125,8 +128,8 @@ export default function ContractPrintPage() {
           et dans l&apos;interet de chacun.
         </p>
 
-        <p className="font-bold underline mb-2">ARTICLE I : OBLIGATION DE L&apos;APPORTEUR</p>
-        <p className="mb-6 text-justify leading-relaxed">
+        <p className="font-bold underline mb-1 print:mb-1 mt-3 print:mt-2">ARTICLE I : OBLIGATION DE L&apos;APPORTEUR</p>
+        <p className="mb-3 print:mb-2 text-justify leading-relaxed">
           De maniere generale <strong>La Societe VISION-H SARL</strong>{" "}
           s&apos;engage a mettre a la disposition de {d.civility}{" "}
           {partnerName}, les parcelles de terrains des titres fonciers
@@ -136,8 +139,8 @@ export default function ContractPrintPage() {
           documentation necessaire pour la bonne execution du Contrat.
         </p>
 
-        <p className="font-bold underline mb-2">ARTICLE II : OBLIGATION DU PARTENAIRE AFFAIRE</p>
-        <p className="mb-8 text-justify leading-relaxed">
+        <p className="font-bold underline mb-1 print:mb-1 mt-3 print:mt-2">ARTICLE II : OBLIGATION DU PARTENAIRE AFFAIRE</p>
+        <p className="mb-3 print:mb-2 text-justify leading-relaxed">
           Le Partenaire s&apos;engage en contrepartie a verser a VISION-H
           SARL la somme de {d.price_per_m2} Francs CFA par metre Carre
           vendu sur les dit titres fonciers. L&apos;Excedent realiser sur

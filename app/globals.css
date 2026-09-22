@@ -37,3 +37,19 @@ body {
   outline: none;
   border-color: #C9A15A;
 }
+
+/* Browsers strip background images/colors when printing by default.
+   This forces them to print exactly as shown on screen. */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
