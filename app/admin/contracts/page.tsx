@@ -203,7 +203,7 @@ export default function ContractsPage() {
         </button>
       </form>
 
-      <div className="border border-[#C9A15A]/20 rounded-2xl overflow-hidden">
+      <div className="border border-[#C9A15A]/20 rounded-2xl overflow-x-auto">
         <table className="w-full text-sm text-[#F3EFE3]">
           <thead className="bg-[#0E3A2B] text-[#C9A15A] text-left">
             <tr>

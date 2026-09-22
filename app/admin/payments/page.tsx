@@ -32,6 +32,8 @@ const emptyForm = {
   price_per_m2: "",
   remaining_balance: "",
   remaining_installments: "",
+  tf_number: "",
+  bornage_fee: "",
 };
 
 export default function GeneralPaymentsPage() {
@@ -83,6 +85,8 @@ export default function GeneralPaymentsPage() {
         price_per_m2: form.price_per_m2,
         remaining_balance: form.remaining_balance,
         remaining_installments: form.remaining_installments,
+        tf_number: form.tf_number,
+        bornage_fee: form.bornage_fee,
       },
     });
     setSaving(false);
@@ -185,6 +189,12 @@ export default function GeneralPaymentsPage() {
             </Field>
             <Field label="Echeancier restant (une ligne par versement)" span2>
               <textarea value={form.remaining_installments} onChange={(e) => setForm({ ...form, remaining_installments: e.target.value })} rows={3} className="input" />
+            <Field label="TF (Titre Foncier)">
+              <input value={form.tf_number} onChange={(e) => setForm({ ...form, tf_number: e.target.value })} placeholder="10316/SM" className="input" />
+            </Field>
+            <Field label="Frais de bornage (FCFA)">
+              <input value={form.bornage_fee} onChange={(e) => setForm({ ...form, bornage_fee: e.target.value })} className="input" />
+            </Field>
             </Field>
           </div>
         )}
@@ -211,7 +221,7 @@ export default function GeneralPaymentsPage() {
       {loading ? (
         <p className="text-[#F3EFE3]/60">Chargement...</p>
       ) : (
-        <div className="border border-[#C9A15A]/20 rounded-2xl overflow-hidden">
+        <div className="border border-[#C9A15A]/20 rounded-2xl overflow-x-auto">
           <table className="w-full text-sm text-[#F3EFE3]">
             <thead className="bg-[#0E3A2B] text-[#C9A15A] text-left">
               <tr>

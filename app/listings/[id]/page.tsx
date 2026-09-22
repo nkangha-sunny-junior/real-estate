@@ -119,7 +119,7 @@ export default async function ListingDetailPage({ params }: DetailPageProps) {
             recognize it as "tap to chat", so fighting that convention
             with brand colors would actually hurt usability here */}
         <a
-          href={`https://wa.me/237690614652?text=${encodeURIComponent(
+          href={`https://wa.me/237695591479?text=${encodeURIComponent(
             `Bonjour, je suis interesse par le terrain: ${land.title}`
           )}`}
           target="_blank"
